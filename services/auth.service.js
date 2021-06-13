@@ -19,13 +19,13 @@ class authService {
         } */
 
         data.password = bcrypt.hashSync(data.password, 8);
-        const user = prisma.user.create({
+        let user = prisma.user.create({
             data
         })
 
-        user.accessToken = await jwt.signAccessToken(user);
+        data.accessToken = await jwt.signAccessToken(user);
         
-        return user;
+        return data;
     }
 
     static async all() {
