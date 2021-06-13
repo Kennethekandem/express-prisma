@@ -1,11 +1,13 @@
 const express = require('express');
-const { PrismaClient } = require('@prisma/client');
+require('@prisma/client');
 const app = express();
-const prisma = new PrismaClient();
 require('dotenv').config();
 const route = require('./routes');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 app.use('/', route);
 
