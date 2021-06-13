@@ -30,9 +30,7 @@ class authService {
 
     static async all() {
 
-        const allUsers = await prisma.user.findMany({
-            include: { posts: true },
-        });
+        const allUsers = await prisma.user.findMany();
 
         return allUsers;
     }
