@@ -4,6 +4,8 @@ const app = express();
 const prisma = new PrismaClient();
 require('dotenv').config();
 const route = require('./routes');
+const bodyParser = require('body-parser');
+const multer = require('multer');
 
 app.use('/', route);
 
