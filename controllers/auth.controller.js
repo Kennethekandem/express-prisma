@@ -20,6 +20,20 @@ class authController {
         }
     }
 
+    static login = async (req, res, next) => {
+
+         try {
+            const data = await auth.login(req.body)
+            res.status(200).json({
+                status: true,
+                message: "Account login successful",
+                data
+            })
+        } catch (e) {
+            next(createError(e.statusCode, e.message))
+        }
+    }
+
     static all = async (req, res, next) => {
         try {
 
