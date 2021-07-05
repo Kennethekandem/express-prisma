@@ -10,13 +10,6 @@ class authService {
     static async register(data) {
 
         const { email } = data;
-        /* const check =  await prisma.findUnique({
-            where: { email }
-        })
-
-        if(check) {
-            throw createError.Conflict('User with email address already exist')
-        } */
 
         data.password = bcrypt.hashSync(data.password, 8);
         let user = prisma.user.create({

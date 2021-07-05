@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
 const createError = require('http-errors')
-// const redis = require('../connectors/redis')
 
 require('dotenv').config()
 
